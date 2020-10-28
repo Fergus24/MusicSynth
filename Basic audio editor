@@ -1,0 +1,19 @@
+from pydub import AudioSegment
+
+
+sound_first = AudioSegment.from_mp3("firstTrack.mp3")
+sound_second = AudioSegment.from_mp3("secondTrack.mp3")
+sound_third = AudioSegment.from_mp3("thirdTrack.mp3")
+sound_scratch = AudioSegment.from_mp3("record scratch.mp3")
+
+# slicing is in milliseconds
+first_section = sound_first[1:29000]
+second_section = sound_second[1:19000]
+third_section = sound_second[28000:48000]
+fourth_section = sound_first[29000:40000]
+fifth_section = sound_third 
+
+finished_piece = first_section + sound_scratch + second_section + third_section + sound_scratch + fourth_section + sound_scratch + fifth_section
+
+
+finished_piece.export("new_Track.mp3", format="mp3")
